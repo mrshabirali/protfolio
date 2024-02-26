@@ -58,13 +58,13 @@ body {
     color: rgb(26, 25, 25);
 }
 
-.light-mode #mySvg path {
-    fill: rgb(18, 19, 19);
+.dark-mode span {
+    color: rgb(240, 236, 231);
 }
 
-.dark-mode #mySvg path {
-    fill: aliceblue;
-  }
+.light-mode span {
+    color: rgb(26, 25, 25);
+}
 
 #theme-toggle {
     background: none;
@@ -180,9 +180,39 @@ body .logo h1 {
             @media(min-width:992px) {
                 display: flex;
             }
-        }
 
-        
+            cursor: pointer;
+            border: 0;
+            background-color: transparent;
+            position: relative;
+            padding: 0;
+            flex-direction: column;
+            align-items: center;
+            max-width: 20px;
+            min-height: 100px;
+
+            svg {
+              transition: transform .3s ease;
+              position: relative;
+              top: 40px;  
+            }
+
+            &:hover {
+                svg {
+                    transform: translateY(10px);
+                }
+            }
+
+            span {
+                display: block;
+                transform: rotate(-90deg);
+                position: relative;
+                font-size: 13px;
+                letter-spacing: 1px;
+                min-width: 100px;
+                font-family: 'Source Sans Pro', sans-serif;
+            }
+        }
     }
 
     .nav_wrapper {
@@ -252,6 +282,20 @@ body .logo h1 {
 
         }
     }
+}
+
+.dark-mode #mySvg path:first-child {
+    fill: #141416 !important;
+}
+.dark-mode #mySvg path:last-child {
+    fill: aliceblue !important;
+}
+
+.light-mode #mySvg path:first-child {
+    fill: aliceblue !important;
+}
+.light-mode #mySvg path:last-child {
+    fill: #141416 !important;
 }
 
 .dark-mode .line {
